@@ -21,7 +21,6 @@ public class Driver {
 
 
         //Start of menu. Left in driver instead of making everything static and accessing from outside of class.
-
         boolean menuFinished = false;
         boolean done = false;
         boolean somethingEntered = false;
@@ -32,7 +31,7 @@ public class Driver {
             System.out.println("Enter first letter of enter, show, code, decode, or finished: ");
             String selection = scn.nextLine();
             switch (selection) {
-                case "e":
+                case "e": // Allows user to enter text
                     System.out.println("Enter text lines, terminate with $");
                     input = "";
                     while (!done) {
@@ -81,7 +80,7 @@ public class Driver {
                     System.out.println();
                     break;
 
-                case "s":
+                case "s": // Shows the tree
                     if (somethingEntered == false) {
                         System.out.println("Please enter something into the tree before trying to view it \n");
 
@@ -107,7 +106,7 @@ public class Driver {
                         decode(codedMessage);
                     }
                     break;
-                case "f":
+                case "f": // Exits from code
                     menuFinished = true;
                     break;
                 default:
@@ -192,11 +191,11 @@ public class Driver {
         for (int i = 0; i < input.length(); i++) { // Take the input character and match the code to it
             codedMessage += binaryArray[input.charAt(i) - 65];
         }
-        System.out.println("Coded mesage: " + codedMessage );
+        System.out.println("Coded mesage: " + codedMessage);
     }
 
-    void decode(String code) {
-        String s = "";
+    void decode(String code) { //Decodes message given a coded string
+        String s = ""; //String holds decoded message
         for (int i = 0; i < code.length(); i++) {
             s += code.charAt(i);
             for (int j = 0; j < binaryArray.length; j++) {
